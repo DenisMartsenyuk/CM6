@@ -1,0 +1,38 @@
+package ru.lab.lab6.solutions;
+
+import ru.lab.lab6.entities.InputData;
+import ru.lab.lab6.entities.Points;
+
+import java.util.List;
+
+public abstract class Solution {
+    public abstract Points solveByH(Double h, InputData inputData);
+    public abstract Double getOrder();
+    public abstract String getName();
+
+    public Double getAccuracy(Points previousPoints, Points currentPoints) {
+        List<Double> previousPointsY = previousPoints.getPointsY();
+        List<Double> currentPointsY = currentPoints.getPointsY();
+        Double accuracy = Double.MIN_VALUE;
+        for (int i = 0; i < previousPointsY.size(); ++i) {
+            Double currentDifference = Math.abs(previousPointsY.get(i) - currentPointsY.get(2 * i)) / (Math.pow(2, getOrder()) - 1);
+            accuracy = Math.max(accuracy, currentDifference);
+        }
+        return accuracy;
+    }
+
+    public Points solve(InputData inputData) {
+        Double a = inputData.getA();
+        Double b = inputData.getB();
+        Double h = (b - a) / 2;
+        Points previousPoints = solveByH(h, inputData);
+        h /= 2;
+        Points currentPoints = solveByH(h, inputData);
+        while (getAccuracy(previousPoints, currentPoints) > inputData.getEps()) {
+            previousPoints = currentPoints;
+            h /= 2;
+            currentPoints = solveByH(h, inputData);
+        }
+        return currentPoints;
+    }
+}
