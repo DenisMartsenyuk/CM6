@@ -7,10 +7,8 @@ import ru.lab.lab6.functions.Function;
 public class SolutionRungeKutt4 extends Solution {
 
     @Override
-    public Points solveByH(Double h, InputData inputData) {
+    public Points solveByH(Double h, int n, InputData inputData) {
         Double a = inputData.getA();
-        Double b = inputData.getB();
-        int n = (int) Math.round((b - a) / h);
         Function function = inputData.getFunction();
         Points points = new Points();
         Double currentX = a;

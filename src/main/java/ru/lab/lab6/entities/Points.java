@@ -17,6 +17,11 @@ public class Points {
         pointsY.add(y);
     }
 
+    public void setPoint(int index, double x, double y) {
+        pointsX.set(index, x);
+        pointsY.set(index, y);
+    }
+
     public int getSize() {
         return pointsX.size();
     }

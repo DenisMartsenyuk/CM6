@@ -6,7 +6,7 @@ import ru.lab.lab6.entities.Points;
 import java.util.List;
 
 public abstract class Solution {
-    public abstract Points solveByH(Double h, InputData inputData);
+    public abstract Points solveByH(Double h, int n, InputData inputData);
     public abstract Double getOrder();
     public abstract String getName();
 
@@ -22,16 +22,20 @@ public abstract class Solution {
     }
 
     public Points solve(InputData inputData) {
+//        Points currentPoints = solveByH(0.0625, 33, inputData);
         Double a = inputData.getA();
         Double b = inputData.getB();
         Double h = (b - a) / 2;
-        Points previousPoints = solveByH(h, inputData);
+        int n = (int) Math.round((b - a) / h);
+        Points previousPoints = solveByH(h, n, inputData);
         h /= 2;
-        Points currentPoints = solveByH(h, inputData);
+        n = (int) Math.round((b - a) / h);
+        Points currentPoints = solveByH(h, n, inputData); //todo заменить на h
         while (getAccuracy(previousPoints, currentPoints) > inputData.getEps()) {
             previousPoints = currentPoints;
             h /= 2;
-            currentPoints = solveByH(h, inputData);
+            n = (int) Math.round((b - a) / h);
+            currentPoints = solveByH(h, n, inputData);
         }
         return currentPoints;
     }

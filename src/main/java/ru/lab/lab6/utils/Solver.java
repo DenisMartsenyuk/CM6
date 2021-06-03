@@ -4,6 +4,7 @@ import ru.lab.lab6.entities.InputData;
 import ru.lab.lab6.entities.Points;
 import ru.lab.lab6.functions.Function;
 import ru.lab.lab6.solutions.Solution;
+import ru.lab.lab6.solutions.SolutionMiln;
 import ru.lab.lab6.solutions.SolutionRungeKutt4;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Solver {
         painter = new Painter();
         solutions = new ArrayList<>();
         solutions.add(new SolutionRungeKutt4());
+        solutions.add(new SolutionMiln());
     }
 
     public void solve(InputData inputData) {
@@ -44,6 +46,7 @@ public class Solver {
         for (Double y : pointsY) {
             System.out.printf("%9.5f", y);
         }
+        System.out.println();
     }
 
     public Points getRealCurve(InputData inputData) {
