@@ -1,5 +1,6 @@
 import ru.lab.lab6.functions.Function;
 import ru.lab.lab6.functions.FunctionFirst;
+import ru.lab.lab6.functions.FunctionSecond;
 import ru.lab.lab6.utils.ReaderInputData;
 import ru.lab.lab6.utils.Solver;
 
@@ -14,6 +15,7 @@ public class Application {
         solver = new Solver();
         functions = new ArrayList<>();
         functions.add(new FunctionFirst());
+        functions.add(new FunctionSecond());
     }
 
     public void start() {
