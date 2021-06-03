@@ -22,7 +22,6 @@ public abstract class Solution {
     }
 
     public Points solve(InputData inputData) {
-//        Points currentPoints = solveByH(0.0625, 33, inputData);
         Double a = inputData.getA();
         Double b = inputData.getB();
         Double h = (b - a) / 2;
@@ -30,7 +29,7 @@ public abstract class Solution {
         Points previousPoints = solveByH(h, n, inputData);
         h /= 2;
         n = (int) Math.round((b - a) / h);
-        Points currentPoints = solveByH(h, n, inputData); //todo заменить на h
+        Points currentPoints = solveByH(h, n, inputData);
         while (getAccuracy(previousPoints, currentPoints) > inputData.getEps()) {
             previousPoints = currentPoints;
             h /= 2;
