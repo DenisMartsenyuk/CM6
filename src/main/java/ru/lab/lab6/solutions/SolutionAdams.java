@@ -34,7 +34,7 @@ public class SolutionAdams extends Solution {
 
     @Override
     public String getName() {
-        return "Адама";
+        return "Адамса";
     }
 
     private Points getFourPoints(Double h, InputData inputData) {
@@ -51,7 +51,7 @@ public class SolutionAdams extends Solution {
         Double f_3 = function.calc(pointsX.get(index - 3), pointsY.get(index - 3));
         Double f_2 = function.calc(pointsX.get(index - 2), pointsY.get(index - 2));
         Double f_1 = function.calc(pointsX.get(index - 1), pointsY.get(index - 1));
-        return pointsY.get(index - 1) + h / 12.0 * (23 * f_1 - 26 * f_2 + 5 * f_3);
+        return pointsY.get(index - 1) + h / 12.0 * (23 * f_1 - 16 * f_2 + 5 * f_3);
     }
 
     private Double getCorrector(Points points, Function function, int index, Double h) {
