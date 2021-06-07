@@ -27,15 +27,15 @@ public abstract class Solution {
         Double h = (b - a) / 2;
         int n = (int) Math.round((b - a) / h);
         Points previousPoints = solveByH(h, n, inputData);
-        h /= 2;
+        h /= 8;
         n = (int) Math.round((b - a) / h);
         Points currentPoints = solveByH(h, n, inputData);
-        while (getAccuracy(previousPoints, currentPoints) > inputData.getEps()) {
-            previousPoints = currentPoints;
-            h /= 2;
-            n = (int) Math.round((b - a) / h);
-            currentPoints = solveByH(h, n, inputData);
-        }
+//        while (getAccuracy(previousPoints, currentPoints) > inputData.getEps()) {
+//            previousPoints = currentPoints;
+//            h /= 2;
+//            n = (int) Math.round((b - a) / h);
+//            currentPoints = solveByH(h, n, inputData);
+//        }
         return currentPoints;
     }
 }

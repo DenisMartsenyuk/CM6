@@ -4,6 +4,7 @@ import ru.lab.lab6.entities.InputData;
 import ru.lab.lab6.entities.Points;
 import ru.lab.lab6.functions.Function;
 import ru.lab.lab6.solutions.Solution;
+import ru.lab.lab6.solutions.SolutionAdams;
 import ru.lab.lab6.solutions.SolutionMiln;
 import ru.lab.lab6.solutions.SolutionRungeKutt4;
 
@@ -22,6 +23,7 @@ public class Solver {
         solutions = new ArrayList<>();
         solutions.add(new SolutionRungeKutt4());
         solutions.add(new SolutionMiln());
+        solutions.add(new SolutionAdams());
     }
 
     public void solve(InputData inputData) {
